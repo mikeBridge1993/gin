@@ -9,8 +9,8 @@ import styles from "./styles.module.scss"
 const MAXIMUM_NUMBER_OF_USER_ITEMS = 5
 const DEBOUNCE_DELAY_IN_MILISECONDS = 200
 
-const boundedHighlightedIndex = index =>
-  Math.max(0, Math.min(index, MAXIMUM_NUMBER_OF_USER_ITEMS - 1))
+const boundedHighlightedIndex = (index, max) =>
+  Math.max(0, Math.min(index, max - 1))
 
 const UsersList = () => {
   const [searchTerm, setSearchTerm] = useState(null)
@@ -36,6 +36,7 @@ const UsersList = () => {
 
   const handleKeyDown = useCallback(
     e => {
+      const maximumIndex = usersData?.length
       switch (e.key) {
         case Keys.KEY_ESCAPE:
           e.preventDefault()
@@ -43,11 +44,15 @@ const UsersList = () => {
           break
         case Keys.KEY_ARROW_UP:
           e.preventDefault()
-          setHighlightedIndex(boundedHighlightedIndex(highlightedIndex - 1))
+          setHighlightedIndex(
+            boundedHighlightedIndex(highlightedIndex - 1, maximumIndex)
+          )
           break
         case Keys.KEY_ARROW_DOWN:
           e.preventDefault()
-          setHighlightedIndex(boundedHighlightedIndex(highlightedIndex + 1))
+          setHighlightedIndex(
+            boundedHighlightedIndex(highlightedIndex + 1, maximumIndex)
+          )
           break
         case Keys.KEY_ENTER:
         case Keys.KEY_RETURN:
