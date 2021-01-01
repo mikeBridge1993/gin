@@ -1,0 +1,48 @@
+@import "./global/variables.scss";
+
+.main {
+  background: $color-light-grey;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    width: 100vw;
+    height: 305px;
+    top: 0;
+    background-color: rgba($color-primary, .9);
+
+    @media (max-width: $mobile-breakpoint) {
+      height: 270px;
+    }
+  }
+
+  &__title {
+    margin-top: 160px;
+    z-index: 1;
+    color: $color-secondary;
+    font-weight: 500;
+    font-size: 30px;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 21px;
+    }
+   
+  }
+
+  &__brand {
+    color: $color-white;
+    font-style: italic;
+    font-weight: 800;
+  }
+}
+
+
