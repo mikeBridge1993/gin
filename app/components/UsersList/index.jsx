@@ -10,7 +10,7 @@ const MAXIMUM_NUMBER_OF_USER_ITEMS = 5
 const DEBOUNCE_DELAY_IN_MILISECONDS = 200
 
 const boundedHighlightedIndex = (index, max) =>
-  Math.max(0, Math.min(index, max - 1))
+  Math.max(0, Math.min(index, max))
 
 const UsersList = () => {
   const [searchTerm, setSearchTerm] = useState(null)
@@ -36,7 +36,7 @@ const UsersList = () => {
 
   const handleKeyDown = useCallback(
     e => {
-      const maximumIndex = usersData?.length
+      const maximumIndex = usersData?.length - 1 || 0
       switch (e.key) {
         case Keys.KEY_ESCAPE:
           e.preventDefault()
@@ -67,7 +67,7 @@ const UsersList = () => {
           break
       }
     },
-    [highlightedIndex, debouncedSearchTerm]
+    [highlightedIndex, debouncedSearchTerm, usersData]
   )
 
   useEffect(() => {
