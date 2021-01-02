@@ -1,8 +1,0 @@
-{
-    "prettier.packageManager": "yarn",
-    "editor.formatOnSave": false,
-    "[javascriptreact]": {
-        "editor.formatOnSave": true
-    }
-      
-}
