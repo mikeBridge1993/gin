@@ -1,22 +1,21 @@
 @import "../../../pages/global/variables.scss";
 
 .user {
-    &,
-    &--highlighted {
-        width: 100%;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 30px;
-        color:$color-black;
-        transition: background-color .1s ease-in;
-    }
+  &,
+  &--highlighted {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    color: $color-black;
+    transition: background-color 0.1s ease-in;
+  }
 
-    &:hover {
-        background-color: $color-highlight;
-    }
-
+  &:hover {
+    background-color: $color-highlight;
+  }
 
   &--highlighted {
     background-color: $color-highlight;
@@ -27,5 +26,5 @@
     max-height: 40px;
     border-radius: 50%;
     border: 1px solid $color-grey;
-    }
+  }
 }
